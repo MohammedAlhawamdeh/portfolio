@@ -134,7 +134,7 @@ const projects = [
     description: "An ecommerce app built with React.",
     image: "/ss.png",
     tech: ["React", "NodeJS", "Bootstrap", "Redux"],
-    demoLink: "https://goldenshoesapp.herokuapp.com/",
+    demoLink: "https://golden-shoe-store-h4czb.ondigitalocean.app/",
     codeLink: "https://github.com/MohammedAlhawamdeh/golden-shoe",
   },
   {
