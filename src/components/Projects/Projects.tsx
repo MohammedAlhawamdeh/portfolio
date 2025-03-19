@@ -139,12 +139,12 @@ const projects = [
   },
   {
     id: 2,
-    title: "Project Two",
-    description: "Full-stack application with Node.js backend.",
-    image: "/project2.jpg",
-    tech: ["Node.js", "Express", "MongoDB"],
-    demoLink: "https://demo.com",
-    codeLink: "https://github.com/MohammedAlhawamdeh/project2",
+    title: "Finace Tracker App",
+    description: "A Crud Finance Tracker Application",
+    image: "/1.png",
+    tech: ["React", "TypeScript"],
+    demoLink: "https://finance-tracking-app-xcdse.ondigitalocean.app/",
+    codeLink: "https://github.com/MohammedAlhawamdeh/finance-tracker",
   },
   {
     id: 3,
