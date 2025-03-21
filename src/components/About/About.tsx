@@ -1,7 +1,7 @@
-import styled from 'styled-components';
-import { motion } from 'framer-motion';
-import * as FaIcons from 'react-icons/fa';
-import { SectionTitle } from '../../styles/SharedStyles';
+import styled from "styled-components";
+import { motion } from "framer-motion";
+import * as FaIcons from "react-icons/fa";
+import { SectionTitle } from "../../styles/SharedStyles";
 
 const Section = styled.section`
   padding: 6rem 0;
@@ -44,7 +44,7 @@ const ImageBlock = styled(motion.div)`
   align-items: center;
   justify-content: center;
   position: relative;
-  
+
   img {
     width: 100%;
     max-width: 400px;
@@ -54,7 +54,7 @@ const ImageBlock = styled(motion.div)`
   }
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 20px;
     right: 20px;
@@ -121,53 +121,76 @@ const SkillCard = styled(motion.div)`
 
 const skillsData = [
   {
-    id: '1',
+    id: "1",
     icon: <FaIcons.FaCode />,
-    title: 'Frontend Technologies',
-    desc: 'React, React Hooks, React Final Forms, Redux, TypeScript, JavaScript, HTML, CSS, Formik, React Testing Library'
+    title: "Frontend Technologies",
+    desc: "React, React Hooks, React Final Forms, Redux, TypeScript, JavaScript, HTML, CSS, Formik, React Testing Library",
   },
   {
-    id: '2',
+    id: "2",
     icon: <FaIcons.FaServer />,
-    title: 'Backend Technologies',
-    desc: 'Node.js, Express, MongoDB, RESTful API, Backend Development'
+    title: "Backend Technologies",
+    desc: "Node.js, Express, MongoDB, RESTful API, Backend Development",
   },
   {
-    id: '3',
+    id: "3",
     icon: <FaIcons.FaCheck />,
-    title: 'Testing & Quality',
-    desc: 'Jest, Playwright, Selenium, Cucumber, Integration Testing, Unit Testing, Test Driven Development'
+    title: "Testing & Quality",
+    desc: "Jest, Playwright, Selenium, Cucumber, Integration Testing, Unit Testing, Test Driven Development",
   },
   {
-    id: '4',
+    id: "4",
     icon: <FaIcons.FaTools />,
-    title: 'Development Tools',
-    desc: 'Git/Github, Azure DevOps, CI/CD, Agile/Scrum, Adobe Analytics, Debugging'
-  }
+    title: "Development Tools",
+    desc: "Git/Github, Azure DevOps, CI/CD, Agile/Scrum, Adobe Analytics, Debugging",
+  },
 ];
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true },
-  transition: { duration: 0.5 }
+  transition: { duration: 0.5 },
 };
+
+const AboutContainer = styled.div`
+  max-width: 800px;
+  margin: 0 auto;
+`;
+
+const BioText = styled.p`
+  color: var(--text-light);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+`;
 
 const About = () => {
   return (
     <Section id="about">
       <Container>
-        <SectionTitle 
-          as={motion.h2}
-          {...fadeIn}
-        >
+        <SectionTitle as={motion.h2} {...fadeIn}>
           About Me
         </SectionTitle>
         <Content>
           <TextBlock {...fadeIn}>
-            <Text>Frontend Development Engineer with 3+ years of experience building responsive web applications using JavaScript/TypeScript, React, and modern frontend frameworks. Proven track record of translating UI/UX designs into intuitive user interfaces.</Text>
-            <Text>Experienced in Agile methodologies with a strong focus on code quality, testing, and cross-functional collaboration. Skilled in developing financial applications and implementing complex form validation and state management solutions.</Text>
-            <Text>Currently based in Turkey, I'm passionate about creating efficient and user-friendly web experiences that solve real business problems.</Text>
+            <Text>
+              Frontend Development Engineer with 3+ years of experience building
+              responsive web applications using JavaScript/TypeScript, React,
+              and modern frontend frameworks. Proven track record of translating
+              UI/UX designs into intuitive user interfaces.
+            </Text>
+            <Text>
+              Experienced in Agile methodologies with a strong focus on code
+              quality, testing, and cross-functional collaboration. Skilled in
+              developing financial applications and implementing complex form
+              validation and state management solutions.
+            </Text>
+            <Text>
+              Currently based in Turkey, I'm passionate about creating efficient
+              and user-friendly web experiences that solve real business
+              problems.
+            </Text>
           </TextBlock>
           <ImageBlock {...fadeIn}>
             <img src="/profile_picture.jpg" alt="Profile" />
@@ -191,6 +214,16 @@ const About = () => {
             ))}
           </SkillsGrid>
         </SkillsSection>
+        <AboutContainer>
+          <BioText>
+            Full Stack Development Engineer with 3+ years of experience building
+            responsive web applications using JavaScript/TypeScript, React, and
+            modern frontend frameworks. Proven track record of translating UI/UX
+            designs into intuitive user interfaces and implementing complex
+            business logic. Experienced in Agile methodologies with a strong
+            focus on code quality, testing, and cross-functional collaboration.
+          </BioText>
+        </AboutContainer>
       </Container>
     </Section>
   );

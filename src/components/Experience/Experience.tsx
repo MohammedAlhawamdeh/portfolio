@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const Timeline = styled.div`
   max-width: 800px;
@@ -6,7 +6,7 @@ const Timeline = styled.div`
   position: relative;
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -38,7 +38,7 @@ const TimelineItem = styled.div`
   }
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     right: -8px;
     top: 20px;
@@ -82,7 +82,7 @@ const TimelineContent = styled.div`
   box-shadow: var(--shadow);
   max-width: 400px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  
+
   @media (max-width: 768px) {
     max-width: 100%;
   }
@@ -122,7 +122,7 @@ const Description = styled.ul`
     position: relative;
 
     &::before {
-      content: '•';
+      content: "•";
       position: absolute;
       left: 0;
       color: var(--accent);
@@ -133,40 +133,42 @@ const Description = styled.ul`
 const experience = [
   {
     id: 1,
-    company: "Taze",
-    role: "Frontend Developer",
-    date: "May 2023 - Present",
+    company: "Lloyds Banking Group",
+    role: "Software Engineer",
+    date: "09/2022 - 01/2025",
+    location: "Halifax, United Kingdom",
     description: [
-      "Leading frontend development with React, TypeScript, and modern web technologies",
-      "Implemented complex form validation and state management using React Final Form and Redux",
-      "Developed and maintained reusable component libraries and design systems",
-      "Collaborated with cross-functional teams to deliver high-quality solutions"
-    ]
+      "Developed responsive and user-friendly interfaces using React, Redux, and TypeScript for financial applications used by brokers across the UK",
+      "Implemented complex form validation and state management using Formik and Redux, ensuring data integrity and a smooth user experience",
+      "Translated UI designs into functional components, collaborating closely with designers to bridge the gap between design and implementation",
+      "Established comprehensive testing strategies with Jest and React Testing Library for unit tests, and Selenium/Playwright for integration testing",
+    ],
   },
   {
     id: 2,
-    company: "Kaizen Softworks",
-    role: "Frontend Developer",
-    date: "Nov 2021 - May 2023",
+    company: "AND DIGITAL",
+    role: "Associate Product Developer",
+    date: "03/2022 - 01/2025",
+    location: "Halifax, United Kingdom",
     description: [
-      "Built responsive web applications using React and modern JavaScript features",
-      "Implemented test-driven development practices using Jest and React Testing Library",
-      "Utilized Azure DevOps for CI/CD pipeline management and agile development",
-      "Integrated Adobe Analytics for tracking and improving user engagement"
-    ]
+      "Developed the Health Check feature, enabling club executives to view health metrics for client engagements",
+      "Participated in Agile ceremonies and regularly demonstrated completed work to stakeholders",
+      "Proactively expanded technical capabilities by taking on challenging work outside my comfort zone",
+      "Conducted user research and created tailored documentation for presentation to stakeholders",
+    ],
   },
   {
     id: 3,
-    company: "ASAC",
-    role: "Teaching Assistant",
-    date: "Jan 2021 - Oct 2021",
+    company: "Luminus Technical University College",
+    role: "Junior Software Developer",
+    date: "05/2020 - 11/2020",
+    location: "Amman, Jordan",
     description: [
-      "Assisted students in learning full-stack JavaScript development",
-      "Conducted code reviews and provided technical mentorship",
-      "Created and maintained educational materials and coding exercises",
-      "Facilitated pair programming sessions and technical workshops"
-    ]
-  }
+      "Integrated Zoom APIs with the university's Content Management System",
+      "Developed frontend components for data visualization",
+      "Mentored students as a teaching assistant, helping them understand web development fundamentals",
+    ],
+  },
 ];
 
 const Experience = () => {

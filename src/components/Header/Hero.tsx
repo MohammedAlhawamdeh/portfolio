@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { motion } from 'framer-motion';
+import styled from "styled-components";
+import { motion } from "framer-motion";
 
 const HeroSection = styled.section`
   min-height: calc(100vh - 70px);
@@ -11,7 +11,7 @@ const HeroSection = styled.section`
   color: var(--text-light);
 
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: 0;
     left: 0;
@@ -124,15 +124,16 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            Frontend Developer
+            Full Stack Developer
           </Subtitle>
           <Description
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            I build responsive and user-friendly web applications with modern technologies.
-            Passionate about creating seamless user experiences and solving complex problems.
+            I build responsive and user-friendly web applications with modern
+            technologies. Passionate about creating seamless user experiences
+            and solving complex problems.
           </Description>
           <ButtonGroup
             initial={{ opacity: 0, y: 20 }}
@@ -142,9 +143,9 @@ const Hero = () => {
             <Button href="#contact" className="primary">
               Contact Me
             </Button>
-            <Button 
-              href="/resume.pdf" 
-              className="secondary" 
+            <Button
+              href="/resume.pdf"
+              className="secondary"
               download="Mohammed_Alhawamdeh_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
