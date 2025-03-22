@@ -175,10 +175,10 @@ const About = () => {
         <Content>
           <TextBlock {...fadeIn}>
             <Text>
-              Frontend Development Engineer with 3+ years of experience building
-              responsive web applications using JavaScript/TypeScript, React,
-              and modern frontend frameworks. Proven track record of translating
-              UI/UX designs into intuitive user interfaces.
+              Full Stack Development Engineer with 3+ years of experience
+              building responsive web applications using JavaScript/TypeScript,
+              React, and modern frontend frameworks. Proven track record of
+              translating UI/UX designs into intuitive user interfaces.
             </Text>
             <Text>
               Experienced in Agile methodologies with a strong focus on code
