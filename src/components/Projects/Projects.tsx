@@ -148,12 +148,12 @@ const projects = [
   },
   {
     id: 3,
-    title: "Project Three",
-    description: "Mobile-first responsive design project.",
-    image: "/project3.jpg",
-    tech: ["React", "CSS Grid", "Flexbox"],
-    demoLink: "https://demo.com",
-    codeLink: "https://github.com/MohammedAlhawamdeh/project3",
+    title: "Movie App",
+    description: "Full-stack movie app built with React and NodeJS.",
+    image: "/movieapp.png",
+    tech: ["React", "Tawilwind", "NodeJS", "Redux", "MongoDB"],
+    demoLink: "https://movier-app-nrimg.ondigitalocean.app/",
+    codeLink: "https://github.com/MohammedAlhawamdeh/movie-app",
   },
 ];
 
