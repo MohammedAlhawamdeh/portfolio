@@ -144,7 +144,7 @@ const Hero = () => {
               Contact Me
             </Button>
             <Button
-              href="/resume.pdf"
+              href="/Mohammed_Alhawamdeh_Resume%20.pdf"
               className="secondary"
               download="Mohammed_Alhawamdeh_Resume.pdf"
               target="_blank"

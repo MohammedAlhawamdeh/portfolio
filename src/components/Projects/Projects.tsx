@@ -130,6 +130,15 @@ const ProjectGrid = styled.div`
 const projects = [
   {
     id: 1,
+    title: "KWIK CV",
+    description: "A modern CV builder application for creating professional resumes quickly and efficiently.",
+    image: "/kwikcv.png",
+    tech: ["React", "TypeScript", "CSS", "HTML"],
+    demoLink: "https://www.kwikcv.com",
+    codeLink: null,
+  },
+  {
+    id: 2,
     title: "Golden Shoe Store",
     description: "An ecommerce app built with React.",
     image: "/ss.png",
@@ -138,7 +147,7 @@ const projects = [
     codeLink: "https://github.com/MohammedAlhawamdeh/golden-shoe",
   },
   {
-    id: 2,
+    id: 3,
     title: "Finace Tracker App",
     description: "A Crud Finance Tracker Application",
     image: "/1.png",
@@ -147,7 +156,7 @@ const projects = [
     codeLink: "https://github.com/MohammedAlhawamdeh/finance-tracker",
   },
   {
-    id: 3,
+    id: 4,
     title: "Movie App",
     description: "Full-stack movie app built with React and NodeJS.",
     image: "/movieapp.png",
@@ -185,20 +194,24 @@ const Projects = () => {
                   ))}
                 </TechStack>
                 <Links>
-                  <LinkButton
-                    href={project.demoLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Live Demo →
-                  </LinkButton>
-                  <LinkButton
-                    href={project.codeLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    View Code →
-                  </LinkButton>
+                  {project.demoLink && (
+                    <LinkButton
+                      href={project.demoLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Live Demo →
+                    </LinkButton>
+                  )}
+                  {project.codeLink && (
+                    <LinkButton
+                      href={project.codeLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      View Code →
+                    </LinkButton>
+                  )}
                 </Links>
               </ProjectContent>
             </ProjectCard>
