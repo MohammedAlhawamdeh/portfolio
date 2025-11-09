@@ -6,8 +6,8 @@ import Education from '../Education/Education';
 import Experience from '../Experience/Experience';
 
 const Section = styled.section`
-  padding: 6rem 0;
-  background-color: var(--background-dark);
+  padding: var(--section-spacing) 0;
+  background: linear-gradient(180deg, rgba(3, 6, 23, 0.95) 0%, rgba(5, 10, 31, 1) 100%);
   color: var(--text-light);
 `;
 
@@ -18,37 +18,43 @@ const Container = styled.div`
 `;
 
 const TabsContainer = styled.div`
-  display: flex;
+  display: inline-flex;
   justify-content: center;
-  margin-bottom: 4rem;
-  gap: 1rem;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 999px;
+  padding: 0.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  margin: 0 auto 3rem;
+  gap: 0.4rem;
 `;
 
 const TabButton = styled.button<{ active: boolean }>`
-  padding: 1rem 2.5rem;
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: ${props => props.active ? 'var(--white)' : 'var(--white)'};
-  background-color: ${props => props.active ? 'var(--accent)' : 'transparent'};
-  border: 2px solid var(--accent);
-  border-radius: 5px;
-  cursor: pointer;
+  padding: 0.9rem 2.4rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: ${({ active }) => (active ? 'var(--white)' : 'var(--text-secondary)')};
+  background: ${({ active }) => (active ? 'var(--gradient-accent)' : 'transparent')};
+  border-radius: 999px;
   transition: all 0.3s ease;
+  border: none;
 
   &:hover {
-    background-color: ${props => props.active ? 'var(--accent)' : 'rgba(255, 110, 64, 0.1)'};
+    color: var(--white);
+    opacity: 0.9;
   }
 `;
 
 const ContentContainer = styled(motion.div)`
   position: relative;
-  min-height: 400px;
-
-  .education-content,
-  .experience-content {
-    background-color: var(--background-dark);
-    color: var(--white);
-  }
+  min-height: 420px;
+  border-radius: 32px;
+  padding: clamp(2rem, 4vw, 3rem);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(2, 6, 23, 0.7);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
 `;
 
 const tabs = [
@@ -69,25 +75,23 @@ const Background = () => {
   return (
     <Section id="background">
       <Container>
-        <SectionTitle 
-          as={motion.h2} 
-          {...fadeIn}
-          style={{ color: 'var(--white)' }}
-        >
+        <SectionTitle as={motion.h2} {...fadeIn}>
           Background
         </SectionTitle>
-        
-        <TabsContainer>
-          {tabs.map(tab => (
-            <TabButton
-              key={tab.id}
-              active={activeTab === tab.id}
-              onClick={() => setActiveTab(tab.id)}
-            >
-              {tab.label}
-            </TabButton>
-          ))}
-        </TabsContainer>
+
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <TabsContainer>
+            {tabs.map(tab => (
+              <TabButton
+                key={tab.id}
+                active={activeTab === tab.id}
+                onClick={() => setActiveTab(tab.id)}
+              >
+                {tab.label}
+              </TabButton>
+            ))}
+          </TabsContainer>
+        </div>
 
         <ContentContainer>
           <AnimatePresence mode="wait">
@@ -98,15 +102,7 @@ const Background = () => {
               exit="exit"
               variants={fadeIn}
             >
-              {activeTab === 'experience' ? (
-                <div className="experience-content">
-                  <Experience />
-                </div>
-              ) : (
-                <div className="education-content">
-                  <Education />
-                </div>
-              )}
+              {activeTab === 'experience' ? <Experience /> : <Education />}
             </motion.div>
           </AnimatePresence>
         </ContentContainer>

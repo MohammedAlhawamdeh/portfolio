@@ -3,136 +3,176 @@ import { motion } from "framer-motion";
 import { SectionTitle } from "../../styles/SharedStyles";
 
 const Section = styled.section`
-  padding: 6rem 0;
-  background-color: var(--white);
+  padding: var(--section-spacing) 0;
+  background: radial-gradient(circle at 10% 20%, rgba(148, 163, 184, 0.12), transparent 45%),
+    var(--background);
 `;
 
 const Container = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
 `;
 
-const ProjectCard = styled(motion.div)`
-  background-color: var(--white);
-  border-radius: 10px;
-  overflow: hidden;
-  transition: all 0.3s ease;
-  box-shadow: var(--shadow);
-  border: 1px solid var(--border);
+const Intro = styled.div`
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+  color: var(--text-secondary);
+  line-height: 1.8;
 
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-hover);
+  span {
+    display: block;
+    font-size: 0.8rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.8rem;
+  }
+`;
+
+const ProjectList = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+`;
+
+const ProjectCard = styled(motion.article)`
+  background: rgba(3, 6, 23, 0.8);
+  border-radius: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: var(--shadow);
+  padding: clamp(1.5rem, 4vw, 3rem);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: clamp(1.5rem, 3vw, 4rem);
+  align-items: center;
+
+  @media (max-width: 768px) {
+    padding: 1.75rem;
   }
 `;
 
 const ProjectImage = styled.div`
-  width: 100%;
-  height: 200px;
-  overflow: hidden;
   position: relative;
-
-  &::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(
-      to bottom,
-      transparent 0%,
-      rgba(0, 0, 0, 0.2) 100%
-    );
-  }
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  min-height: 280px;
 
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.3s ease;
+    transition: transform 0.6s ease;
+    transform: scale(1.02);
+  }
 
-    ${ProjectCard}:hover & {
-      transform: scale(1.1);
-    }
+  ${ProjectCard}:hover & img {
+    transform: scale(1.08);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(2, 6, 23, 0) 20%, rgba(2, 6, 23, 0.8) 100%);
   }
 `;
 
 const ProjectContent = styled.div`
-  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+`;
+
+const MetaRow = styled.div`
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
 `;
 
 const ProjectTitle = styled.h3`
-  font-size: 1.3rem;
-  margin-bottom: 0.5rem;
-  color: var(--background-dark);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  color: var(--white);
+  margin: 0;
 `;
 
 const ProjectDescription = styled.p`
   color: var(--text-secondary);
-  font-size: 0.95rem;
-  line-height: 1.6;
-  margin-bottom: 1rem;
+  line-height: 1.8;
+  margin: 0;
 `;
 
-const TechStack = styled.div`
+const TechRow = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 1.5rem;
+  gap: 0.75rem;
 `;
 
-const TechTag = styled.span`
-  background-color: rgba(10, 25, 47, 0.05);
-  color: var(--background-dark);
-  padding: 0.25rem 0.75rem;
-  border-radius: 15px;
-  font-size: 0.85rem;
-  transition: all 0.3s ease;
-
-  &:hover {
-    background-color: var(--background-dark);
-    color: var(--white);
-  }
+const TechChip = styled.span`
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  color: var(--text-secondary);
 `;
 
-const Links = styled.div`
+const ActionRow = styled.div`
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
 `;
 
-const LinkButton = styled.a`
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: var(--background-dark);
-  font-size: 0.95rem;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  border: 1px solid var(--background-dark);
+const PrimaryLink = styled.a`
+  padding: 0.85rem 1.9rem;
+  border-radius: 999px;
+  background: var(--gradient-accent);
+  color: var(--white);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  transition: transform 0.3s ease;
 
   &:hover {
-    background-color: var(--background-dark);
-    color: var(--white);
+    transform: translateY(-3px);
   }
 `;
 
-const ProjectGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  padding: 2rem 0;
+const GhostLink = styled.a`
+  padding: 0.85rem 1.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--white);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  transition: background 0.3s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.08);
+  }
 `;
 
 const projects = [
   {
     id: 1,
     title: "KWIK CV",
+    role: "Product Experience",
+    impact: "10k+ resumes shipped",
     description:
-      "A modern CV builder application for creating professional resumes quickly and efficiently.",
+      "A modern CV builder that helps job seekers publish polished resumes in minutes with live previews, modular sections, and guided copy.",
     image: "/kwikcv.png",
     tech: ["React", "TypeScript", "CSS", "HTML"],
     demoLink: "https://www.kwikcv.com",
@@ -141,17 +181,22 @@ const projects = [
   {
     id: 2,
     title: "Kwik Fluency",
+    role: "AI Speaking Coach",
+    impact: "Realtime pronunciation feedback",
     description:
-      "AI-powered English conversation coach that delivers real-time pronunciation feedback, grammar corrections, and progress tracking.",
+      "Conversational AI companion that simulates human dialogues, detects pronunciation gaps, and coaches learners toward confident English delivery.",
     image: "/kwikfluency.png",
-    tech: ["Next.js", "TypeScript", "Tailwind CSS", "OpenAI"],
+    tech: ["Next.js", "TypeScript", "Tailwind", "OpenAI"],
     demoLink: "https://www.kwikfluency.com",
     codeLink: null,
   },
   {
     id: 3,
     title: "Golden Shoe Store",
-    description: "An ecommerce app built with React.",
+    role: "Ecommerce Stack",
+    impact: "Headless storefront",
+    description:
+      "High-converting footwear shop with tailored merchandising, promo engines, and Redux-powered cart/checkout flows.",
     image: "/ss.png",
     tech: ["React", "NodeJS", "Bootstrap", "Redux"],
     demoLink: "https://golden-shoe-store-h4czb.ondigitalocean.app/",
@@ -159,8 +204,11 @@ const projects = [
   },
   {
     id: 4,
-    title: "Finace Tracker App",
-    description: "A Crud Finance Tracker Application",
+    title: "Finance Tracker",
+    role: "Data Viz Suite",
+    impact: "Budget insights",
+    description:
+      "CRUD dashboard for personal finances with smart categorisation, timeline visualisations, and export-ready reports.",
     image: "/1.png",
     tech: ["React", "TypeScript"],
     demoLink: "https://finance-tracking-app-xcdse.ondigitalocean.app/",
@@ -169,9 +217,12 @@ const projects = [
   {
     id: 5,
     title: "Movie App",
-    description: "Full-stack movie app built with React and NodeJS.",
+    role: "Full-Stack Delivery",
+    impact: "Realtime catalog",
+    description:
+      "Streaming discovery platform built with a Node/React stack, complete with favorites, reviews, and aggregated ratings.",
     image: "/movieapp.png",
-    tech: ["React", "Tawilwind", "NodeJS", "Redux", "MongoDB"],
+    tech: ["React", "Tailwind", "NodeJS", "Redux", "MongoDB"],
     demoLink: "https://movier-app-nrimg.ondigitalocean.app/",
     codeLink: "https://github.com/MohammedAlhawamdeh/movie-app",
   },
@@ -184,50 +235,51 @@ const Projects = () => {
         <SectionTitle as={motion.h2} {...fadeIn}>
           Projects
         </SectionTitle>
-        <ProjectGrid>
+        <Intro>
+          <span>Selected work</span>
+          Multi-platform builds spanning AI copilots, ecommerce, and interactive dashboards. Every product pairs
+          immersive UI with resilient engineering and measurable impact.
+        </Intro>
+        <ProjectList>
           {projects.map((project, index) => (
             <ProjectCard
               key={project.id}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.5, delay: index * 0.08 }}
             >
-              <ProjectImage>
+              <ProjectImage style={index % 2 !== 0 ? { order: 2 } : undefined}>
                 <img src={project.image} alt={project.title} />
               </ProjectImage>
-              <ProjectContent>
+              <ProjectContent style={index % 2 !== 0 ? { order: 1 } : undefined}>
+                <MetaRow>
+                  <span>{project.role}</span>
+                  <span>{project.impact}</span>
+                </MetaRow>
                 <ProjectTitle>{project.title}</ProjectTitle>
                 <ProjectDescription>{project.description}</ProjectDescription>
-                <TechStack>
+                <TechRow>
                   {project.tech.map((tech) => (
-                    <TechTag key={tech}>{tech}</TechTag>
+                    <TechChip key={`${project.id}-${tech}`}>{tech}</TechChip>
                   ))}
-                </TechStack>
-                <Links>
+                </TechRow>
+                <ActionRow>
                   {project.demoLink && (
-                    <LinkButton
-                      href={project.demoLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Live Demo →
-                    </LinkButton>
+                    <PrimaryLink href={project.demoLink} target="_blank" rel="noopener noreferrer">
+                      Live Demo
+                    </PrimaryLink>
                   )}
                   {project.codeLink && (
-                    <LinkButton
-                      href={project.codeLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      View Code →
-                    </LinkButton>
+                    <GhostLink href={project.codeLink} target="_blank" rel="noopener noreferrer">
+                      Code
+                    </GhostLink>
                   )}
-                </Links>
+                </ActionRow>
               </ProjectContent>
             </ProjectCard>
           ))}
-        </ProjectGrid>
+        </ProjectList>
       </Container>
     </Section>
   );

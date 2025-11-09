@@ -1,128 +1,97 @@
 import styled from "styled-components";
 
 const Timeline = styled.div`
-  max-width: 800px;
-  margin: 0 auto;
   position: relative;
+  padding-left: 2rem;
+  display: grid;
+  gap: 2rem;
 
   &::before {
     content: "";
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 16px;
+    top: 0;
+    bottom: 0;
     width: 2px;
-    height: 100%;
-    background-color: var(--accent);
-    opacity: 0.3;
+    background: linear-gradient(180deg, rgba(168, 85, 247, 0.4), rgba(34, 211, 238, 0.1));
+  }
 
-    @media (max-width: 768px) {
-      left: 20px;
-    }
+  @media (min-width: 1024px) {
+    padding-left: 3rem;
   }
 `;
 
 const TimelineItem = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  padding-right: 30px;
-  margin-bottom: 3rem;
-  width: 50%;
   position: relative;
-
-  &:nth-child(odd) {
-    align-self: flex-end;
-    justify-content: flex-start;
-    padding-left: 30px;
-    padding-right: 0;
-    margin-left: auto;
-  }
+  padding-left: 2rem;
 
   &::before {
     content: "";
     position: absolute;
-    right: -8px;
+    left: -6px;
     top: 20px;
     width: 16px;
     height: 16px;
-    background-color: var(--accent);
     border-radius: 50%;
-  }
-
-  &:nth-child(odd)::before {
-    right: auto;
-    left: -8px;
-  }
-
-  @media (max-width: 768px) {
-    width: 100%;
-    padding-left: 45px;
-    padding-right: 0;
-    justify-content: flex-start;
-
-    &:nth-child(odd) {
-      align-self: flex-start;
-      margin-left: 0;
-    }
-
-    &::before {
-      left: 16px;
-      right: auto;
-    }
-
-    &:nth-child(odd)::before {
-      left: 16px;
-    }
+    background: var(--gradient-accent);
+    box-shadow: 0 0 18px rgba(168, 85, 247, 0.5);
   }
 `;
 
 const TimelineContent = styled.div`
-  background-color: rgba(255, 255, 255, 0.05);
-  padding: 1.5rem;
-  border-radius: 10px;
+  background: rgba(3, 6, 23, 0.75);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1.8rem;
   box-shadow: var(--shadow);
-  max-width: 400px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+`;
 
-  @media (max-width: 768px) {
-    max-width: 100%;
+const Meta = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  span {
+    color: var(--text-secondary);
   }
 `;
 
 const Date = styled.span`
-  color: var(--accent);
-  font-size: 0.9rem;
-  font-weight: 500;
+  color: var(--accent-light);
 `;
 
 const Company = styled.h3`
-  margin: 0.5rem 0;
+  margin: 0.8rem 0 0.2rem;
   color: var(--white);
-  font-size: 1.2rem;
+  font-size: 1.4rem;
 `;
 
 const Role = styled.p`
-  color: var(--text-light);
-  margin-bottom: 0.5rem;
-  font-weight: 500;
-  opacity: 0.9;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
 `;
 
 const Description = styled.ul`
   color: var(--text-light);
   font-size: 0.95rem;
-  line-height: 1.6;
+  line-height: 1.7;
   list-style: none;
   padding: 0;
   margin: 0;
-  opacity: 0.8;
+  display: grid;
+  gap: 0.6rem;
 
   li {
-    margin-bottom: 0.5rem;
-    padding-left: 1.2rem;
     position: relative;
+    padding-left: 1.4rem;
 
     &::before {
-      content: "•";
+      content: "▹";
       position: absolute;
       left: 0;
       color: var(--accent);
@@ -177,7 +146,10 @@ const Experience = () => {
       {experience.map((item) => (
         <TimelineItem key={item.id}>
           <TimelineContent>
-            <Date>{item.date}</Date>
+            <Meta>
+              <Date>{item.date}</Date>
+              <span>{item.location}</span>
+            </Meta>
             <Company>{item.company}</Company>
             <Role>{item.role}</Role>
             <Description>

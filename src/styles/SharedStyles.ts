@@ -1,30 +1,40 @@
 import styled from 'styled-components';
 
 export const SectionContainer = styled.section`
-  padding: 5rem 0;
+  padding: var(--section-spacing) 0;
+  position: relative;
 `;
 
 export const SectionTitle = styled.h2`
-  font-size: 2.5rem;
+  font-size: clamp(2.4rem, 4vw, 3.5rem);
   text-align: center;
   margin-bottom: 3rem;
-  color: var(--text-primary);
-  
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  position: relative;
+
   &::after {
     content: '';
-    display: block;
-    width: 50px;
+    width: 110px;
     height: 3px;
-    background-color: var(--accent);
-    margin: 0.5rem auto 0;
+    background: var(--gradient-accent);
+    display: block;
+    margin: 1rem auto 0;
+    border-radius: 999px;
+    opacity: 0.7;
   }
 `;
 
 export const Card = styled.div`
-  background-color: var(--background-card);
-  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(10, 12, 29, 0.85), rgba(16, 18, 45, 0.92));
+  border-radius: 20px;
+  padding: 2rem;
+  border: var(--glass-border);
   box-shadow: var(--shadow);
-  overflow: hidden;
+  backdrop-filter: blur(18px);
 `;
 
 export const Grid = styled.div`
@@ -35,31 +45,33 @@ export const Grid = styled.div`
 `;
 
 export const Button = styled.button`
-  padding: 0.8rem 2rem;
-  border-radius: 5px;
+  padding: 0.9rem 2.4rem;
+  border-radius: 999px;
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 600;
+  letter-spacing: 0.05em;
   cursor: pointer;
-  transition: all 0.3s ease;
-  border: 2px solid var(--accent);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  border: none;
+  color: var(--white);
+  background: var(--gradient-accent);
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.35);
 
-  &.primary {
-    background-color: var(--accent);
-    color: white;
-
-    &:hover {
-      background-color: transparent;
-      color: var(--accent);
-    }
+  &:hover {
+    transform: translateY(-3px) scale(1.01);
+    box-shadow: var(--shadow-hover);
   }
 
   &.secondary {
-    background-color: transparent;
-    color: var(--accent);
+    background: transparent;
+    border: 1px solid rgba(99, 102, 241, 0.5);
+    color: var(--white);
+    box-shadow: none;
+    backdrop-filter: blur(12px);
 
     &:hover {
-      background-color: var(--accent);
-      color: white;
+      background: rgba(99, 102, 241, 0.15);
+      box-shadow: none;
     }
   }
 `;
@@ -72,35 +84,37 @@ export const Container = styled.div`
 
 export const Input = styled.input`
   width: 100%;
-  padding: 0.8rem;
-  border: 1px solid var(--border);
-  border-radius: 5px;
+  padding: 0.9rem 1.1rem;
+  border: 1px solid var(--surface-border);
+  border-radius: 14px;
   font-size: 1rem;
-  background-color: var(--background-light);
+  background-color: rgba(15, 23, 42, 0.25);
   color: var(--text-primary);
-  transition: border-color 0.3s ease;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 
   &:focus {
     outline: none;
     border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.25);
   }
 `;
 
 export const TextArea = styled.textarea`
   width: 100%;
-  padding: 0.8rem;
-  border: 1px solid var(--border);
-  border-radius: 5px;
+  padding: 0.9rem 1.1rem;
+  border: 1px solid var(--surface-border);
+  border-radius: 14px;
   font-size: 1rem;
-  background-color: var(--background-light);
+  background-color: rgba(15, 23, 42, 0.25);
   color: var(--text-primary);
   resize: vertical;
   min-height: 150px;
-  transition: border-color 0.3s ease;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 
   &:focus {
     outline: none;
     border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.25);
   }
 `;
 
