@@ -131,7 +131,8 @@ const projects = [
   {
     id: 1,
     title: "KWIK CV",
-    description: "A modern CV builder application for creating professional resumes quickly and efficiently.",
+    description:
+      "A modern CV builder application for creating professional resumes quickly and efficiently.",
     image: "/kwikcv.png",
     tech: ["React", "TypeScript", "CSS", "HTML"],
     demoLink: "https://www.kwikcv.com",
@@ -139,6 +140,16 @@ const projects = [
   },
   {
     id: 2,
+    title: "Kwik Fluency",
+    description:
+      "AI-powered English conversation coach that delivers real-time pronunciation feedback, grammar corrections, and progress tracking.",
+    image: "/kwikfluency.png",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "OpenAI"],
+    demoLink: "https://www.kwikfluency.com",
+    codeLink: null,
+  },
+  {
+    id: 3,
     title: "Golden Shoe Store",
     description: "An ecommerce app built with React.",
     image: "/ss.png",
@@ -147,7 +158,7 @@ const projects = [
     codeLink: "https://github.com/MohammedAlhawamdeh/golden-shoe",
   },
   {
-    id: 3,
+    id: 4,
     title: "Finace Tracker App",
     description: "A Crud Finance Tracker Application",
     image: "/1.png",
@@ -156,7 +167,7 @@ const projects = [
     codeLink: "https://github.com/MohammedAlhawamdeh/finance-tracker",
   },
   {
-    id: 4,
+    id: 5,
     title: "Movie App",
     description: "Full-stack movie app built with React and NodeJS.",
     image: "/movieapp.png",
