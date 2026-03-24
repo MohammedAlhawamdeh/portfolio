@@ -149,7 +149,7 @@ const Contact = () => {
                 <FaMapMarkerAlt />
               </IconWrapper>
               <Label>Location</Label>
-              <StaticValue>Turkey</StaticValue>
+              <StaticValue>United Kingdom</StaticValue>
             </InfoCard>
           </InfoGrid>
           <SocialLinks>

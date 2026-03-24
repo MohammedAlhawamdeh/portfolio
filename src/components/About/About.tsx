@@ -253,7 +253,7 @@ const About = () => {
               and ends with instrumentation that proves the impact.
             </Text>
             <Text>
-              Based in Turkey, partnering with distributed teams worldwide to launch bold web experiences
+              Based in the United Kingdom, partnering with distributed teams worldwide to launch bold web experiences
               backed by robust engineering practices.
             </Text>
             <StatsRow>

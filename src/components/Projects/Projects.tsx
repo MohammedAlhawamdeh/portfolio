@@ -167,6 +167,18 @@ const GhostLink = styled.a`
 
 const projects = [
   {
+    id: 6,
+    title: "KWIK SAAS",
+    role: "SaaS Platform",
+    impact: "Business operations",
+    description:
+      "A comprehensive SaaS platform designed to streamline business operations and enhance productivity with modern tools.",
+    image: "/kwiksaas.png",
+    tech: ["React", "TypeScript", "NodeJS", "Tailwind"],
+    demoLink: "https://www.kwiksaasapp.com/",
+    codeLink: null,
+  },
+  {
     id: 1,
     title: "KWIK CV",
     role: "Product Experience",
